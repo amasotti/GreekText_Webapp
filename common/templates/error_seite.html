@@ -1,0 +1,21 @@
+{% extends "basic.html" %}
+
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Es tut mir leid...</h1>
+    <h3>Die Seite wurde nicht gefunden</h3>
+    <figure>
+      <img class="rounded float-right" src="https://i0.wp.com/afmnoco.com/wp-content/uploads/2017/11/404-Icon.png?ssl=1" alt="" width="300px">
+      <figcaption>Irgendwas ist schief gelaufen</figcaption>
+    </figure>
+    <p class="lead">Diese Seite scheint nicht zu existieren</p>
+    <p>Benutze denk Link unten und schicken Sie mir eine Mail, wenn das Problem weiterhin besteht</p>
+    <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{url_for('startseite')}}" role="button">Zurück zur Startseite</a>
+  </p>
+  </div>
+</div>
+{% endblock %}

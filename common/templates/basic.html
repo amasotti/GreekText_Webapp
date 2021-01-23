@@ -1,0 +1,68 @@
+{# BASIC HTML #}
+<!--
+    Diese Seite bildet das äußere Skelett der ganzen WebApp. Hier sind alle Elemente enthalten, die für alle Seiten gleich sind.
+    Einige kompliziertere Elemente (navbar, stylesheets usw..) habe ich in separaten Dateien gespeichert.
+    Der Mechanismus ist in jeder Hinsicht ähnlich wie bei Latex (Befehle input(latex-Datei.tex)) für die Organisation von längeren Dokumenten.
+-->
+
+<!DOCTYPE html>
+
+<html lang="de" dir="ltr">
+
+<head>
+  <!-- Kodierung der Webapp -->
+    <meta charset="utf-8">
+
+  <!-- Titel der App (sichtbar auf dem Fenstertab im Browser) -->
+  <title>Greek WebApp</title>
+
+<!-- Link zu den Links und Dateien, die das äußere Aussehen der Webapp definieren -->
+  {% include 'dependencies.html' %}
+
+</head>
+
+<!-- Hier beginnt die Seite -->
+<body> 
+<!-- Link zum Code, der die obere Navbar definiert -->
+  {% include 'navbar.html' %}
+
+
+<!-- Dieser Code schaltet die Visualisierung von Flashmessages und Alerts ein. Sie kommen aus dem Python Paket Flask_flash.
+Das besondere an diesen Nachrichten ist, dass sie ein- und ausgeschaltet werden können, ohne die Fuktionalitäten auf der besuchten Seite zu beeinflussen  -->
+
+{% for nachricht in get_flashed_messages() %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    {{nachricht}}
+</div>
+{% endfor %}
+
+<!-- Loading Bild für zeitaufwendige Funktionen -->
+<script type="text/javascript">// <![CDATA[
+  function loading(){
+      $("#loading").show();
+      $("#inhalt").hide();       
+  }
+// ]]></script>
+
+<!-- 
+    In der folgenden Umgebung "content" werden die Inhalte der jeweiligen Einzelseiten angezeigt. 
+    Man kann sich das System so vorstellen: die aktuelle Datei bildet das Skelett und alle andere Seiten erweitern dieses mit ihren 
+    spezifischen Inhalten und Funktionen, die die folgende Umgebung 'block content' befüllen.
+
+
+-->
+{% block content %}
+
+
+
+
+{% endblock content %}
+
+
+<!-- Link zur Seite, die den Footer definiert -->
+{% include 'footer.html' %}
+</body>
+</html>

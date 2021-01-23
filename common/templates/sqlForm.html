@@ -1,0 +1,44 @@
+<!-- Grundgerust -->
+{% extends "basic.html" %}
+
+<!-- Import der Bootstrap library -->
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="container">
+
+<h2>SQL Suche nach speziellen morphologischen Wortformen</h2>
+<p>Das folgende Formular erlaubt Ihnen eine Liste von bestimmten Wortformen und entsprechenden Lexikoneinträgen zu erzeugen.
+  Nutzen Sie folgenden oder ähnlichen Abkürzungen:</p>
+<ul>
+    <li>epic : Epische bzw. homerische Formen </li>
+    <li>noun : Substantiv </li>
+    <li>pl : Plural </li>
+    <li>sg : Singular </li>
+
+    <li>partic : Partikel</li>
+    <li> part : Partizip</li>
+    <li>verb : Verbalformen </li>
+    <li>aor : Formen des Aorists</li>
+    <li>perf : Perfekt</li>
+    <li>subj : Konjunktiv</li>
+    <li>1st : 1. Person (bei Verben) </li>
+    <li>2nd : 2. Person (bei Verben) </li>
+    <li>3rd : 3. Person (bei Verben)</li>
+    <li>....</li>
+</ul>
+<form  method="POST">
+    <dl>
+      <!-- Questo comando genera automaticamente per noi il formulario così come lo abbiamo impostato nella pagina principale dell'app -->
+      {{wtf.quick_form(form, button_map={'submit': 'primary'})}}
+    </dl>
+   <br>
+    <!-- {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }} -->
+</form>
+</div>
+# Links zu verschiedenen Funktionen
+<a id = "gesuchteforme" href="{{url_for('gesuchteforme')}}" class="btn btn-info btn-lg btn-block" role="button" aria-pressed="true">Liste aller gespeicherten Wortformen</a>
+<a id = "zeigWerken" href="{{url_for('zeigWerken')}}" class="btn btn-success btn-lg btn-block" role="button" aria-pressed="true">Lade neue Wortformen herunter</a>
+<a id = "loeschFormen" href="{{url_for('loeschFormen')}}" class="btn btn-danger btn-lg btn-block" role="button" aria-pressed="true">Löschen Sie die gespeicherten Wortformen</a>
+{% endblock %}

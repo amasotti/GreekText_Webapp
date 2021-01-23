@@ -1,0 +1,47 @@
+{% extends "basic.html" %}
+
+{% block content %}
+<div id="loading" class="jumbotron">
+        <h2>Ein Moment Geduld...</h2>
+        <p>Diese Funktion braucht viel Zeit. Eine komplexe Schleife muss meherer tausende male durchgeführt werden, um alle Infos über die einzelne Wörter zu finden und in der DB zu speichern</p>
+        <figure>
+          <img src="{{url_for('static', filename='img/loading.jpg')}}" alt="" width="470px">
+      </figure>
+      </div>
+    <div id="inhalt">
+<div class="jumbotron">
+    <h2 style="text-align:center;">Alle bis jetzt in der Datenbank vorhandenen Werke</h2>
+    <p>Im Folgenden werden alle Werke griechischer Autoren aufgelistet, die in der SQL-Datenbank vorhanden sind. <br>
+        Die Links in der Tabelle erlauben Ihnen, die Texte herunterzuladen, im Browser zu lesen bzw. eine Wortliste zu erstellen.
+    </p>
+    <div>
+    {{table}}
+</div></div>
+<hr>
+
+
+<div class="container bg-gradient-primary">
+  <h2>Lesen Sie einen Text...</h2>
+  <p>Die Idee ist hier die Möglichkeit zu geben, einen Text auf der WebApp zu lesen.</p>
+  <p>Da allerdings jeder Text ein eigenes Layout hat, würde man spezifische Funktionen für die Formatierung für jeden einzelnen Text brauchen. Diese wurden aus
+    Zeitgründen noch nicht programmiert.
+  </p>
+<form id="scegli" action="{{url_for('zeige_text')}}">
+  <div class="form-row align-items-center">
+
+    <div class="col-auto my-1">
+    <label for="gewaehlter_text">Geben Sie den Titel eines Werkes ein:</label>
+    <input type="text" class="form-control" aria-describedby="help" placeholder="Iliad" name=gewaehlter_text>
+    <small id="help" class="form-text text-muted">Versuchen Sie es am besten mit "Iliad" von Homer (siehe Dokumentation)".</small>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-warning">Zeig mir den Text!</button>
+</form>
+</div>
+</div>
+<!-- Kleine JQuery Script für das Suchfeld und Sortierung der Tabelle -->
+<script>$(document).ready( function () {
+    $('#werke').DataTable();
+} );</script>
+
+{% endblock %}

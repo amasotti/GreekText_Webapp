@@ -1,0 +1,54 @@
+<!-- Grundgerust der Seite -->
+{% extends 'basic.html' %}
+
+<!-- Datei-Import für die Formulare -->
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div id="loading" class="jumbotron">
+    <h2>Ein Moment Geduld...</h2>
+    <p>Diese Funktion braucht viel Zeit. Eine komplexe Schleife muss meherer tausende male durchgeführt werden, um alle Infos über die einzelne Wörter zu finden und in der DB zu speichern</p>
+    <figure>
+      <img src="{{url_for('static', filename='img/loading.jpg')}}" alt="" width="470px">
+  </figure>
+  </div>
+<div id="inhalt">
+ <!-- Display Entscheidung -->
+
+ {% if not zeig_tabelle %}
+ <h2 id="suche_werke">Geben Sie hier unten den Name eines Autors, den Sie untersuchen wollen...</h2>
+
+
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-sm">
+            <!-- Leere Raum links -->
+          </div>
+          <div class="col-sm">
+            <form  method="POST">
+                <dl>
+                  <!-- Questo comando genera automaticamente per noi il formulario così come lo abbiamo impostato nella pagina principale dell'app -->
+                  {{wtf.quick_form(form, button_map={'submit': 'primary'})}}
+                </dl>
+               <br>
+            </form>
+          </div>
+          <div class="col-sm">
+                <figure>
+                        <img src="{{url_for('static', filename='img/busto.jpg')}}" alt="" width="470px">
+                    </figure>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+ {% if zeig_tabelle %}
+ <div>
+    {{werke_tabelle }}
+    <!-- Kleine JQuery Script für das Suchfeld und Sortierung der Tabelle -->
+<script>$(document).ready( function () {
+    $('#werkePerseus').DataTable();
+} );</script>
+</div>
+{% endif %}
+</div>
+ {% endblock %}

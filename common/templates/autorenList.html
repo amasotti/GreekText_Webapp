@@ -1,0 +1,39 @@
+<!-- Verknüpfung zur Datei mit dem Skelett -->
+{% extends 'basic.html' %}
+
+<!-- Eigentlicher Inhalt dieser Seite -->
+{% block content %}
+
+<h2>Autoren im Perseus Korpus: </h2> 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <ul>
+          <!-- Beispiel einer Python for-Schleife mit Jinja2 Code
+                Diese Seite bekommt von einer Pythonfunktion zwei Liste und bildet eine numerierte Liste in 2 Spalten auf der HTML-Seite, 
+        -->
+        {% for phil in autors  %}
+            <li><a href={{ phil[0] }}>{{phil[1]}}</a></li>
+        {% endfor %}
+
+      </ul>
+    </div>
+    <div class="col-sm">
+      <ul>
+        {% for phil in autors2  %}
+            <li><a href={{ phil[0] }}>{{phil[1]}}</a></li>
+        {% endfor %}
+
+      </ul>
+    </div>
+    <div class="col-sm">
+    <figure class="figure" style="width:600px">
+    <img src="./static/img/philosophers.jpg" class="figure-img img-fluid rounded" alt="Greek ">
+    <figcaption class="figure-caption">Greek philosophers.</figcaption> 
+    <a href="http://catalog.perseus.org/" class="badge badge-success">Besuch die Homepage des Perseus - Korpus</a>
+  </figure>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

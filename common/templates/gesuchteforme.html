@@ -1,0 +1,27 @@
+<!-- Grundgerust der Seite -->
+{% extends 'basic.html' %}
+
+{% block content %}
+<div class="container-fluid bg-gradient-success">
+<a href="{{url_for('sqlForm')}}" class="btn btn-info btn-lg btn-block" role="button" aria-pressed="true">Neue Suche</a>
+</div>
+<div class="jumbotron">
+    <div>
+        <h4>Laden sie die Listen als csv herunter: </h4>
+    <a id = "csv_herunterladen" href="{{url_for('csv_herunterladen',query=query)}}" class="btn btn-danger" role="button" aria-pressed="true">Download als csv</a>
+    <a id = "TeX_herunterladen" href="{{url_for('TeX_herunterladen',query=query)}}" class="btn btn-success" role="button" aria-pressed="true">Download als pdf (über LaTeX)</a>
+
+    </div>
+    <h1 style="text-align:center;">Ihre Suche hat folgendes ergeben:</h1>
+    {{ wort_tabelle }}
+    <!-- Kleine JQuery Script für das Suchfeld und Sortierung der Tabelle -->
+
+    <script>$(document).ready( function () {
+            $('#wortliste').DataTable();
+        } );</script>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "basic.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+  <h1 style="text-align: center;" id="titel_titel">Tools für das Altgriechische</h1>
+    
+  <div class="media">
+        <div class="media-body" id="einführung">
+          <h5 class="mt-0 mb-1">Einführendes</h5>
+            <p>Das <a href="https://de.wikipedia.org/wiki/Altgriechische_Sprache"></a> ist sicherlich eine der am meisten studierten bzw. untersuchten
+                alten indogermanischen Sprachen. Und trotzdem fehlen bis jetzt viele digitale Tools,
+                die das Leben von Studenten und Forschern deutlich vereinfachen könnten.
+                Diese WebApp, entwickelt als Prüfungsleistung für den <em> SQLite & Python </em> von <a href="http://wwwuser.gwdg.de/~eeggers1/">  Prof. Dr. Eggers </a> an der Universität Götingen (WiSe
+2018/2019) versucht eine kleine von vielen großen Lücken zu schließen. <br>
+Aufauend auf dem Internet Portal <a href="http://www.perseus.tufts.edu/hopper/">Perseus</a>, das schon viele unabdingbare Hilfsmitel zum Studium des Altgriechischen anbietet, ergänzt diese App die schon vorhandenen Funktionen.
+Perseus bietet z.B. die Möglichkeit einzelne Kapitel oder Abschnite von Werken (u.a.) altgriechischer Autoren online zu lesen und stellt ein morphologisches Wörterbuch zur Bestimmung
+von einzelnen Wortformen zur Verfügung. <br>
+
+    Was allerdings fehlt ist die Option ganze Texte auf einer Seite abzurufen, sie herunterzuladen, sowie die Möglichkeit alle Instanzen einer grammatischen Kategorie
+    in einem Text abzufragen.
+
+<br>
+<strong>Download</strong> und Visualisierung von ganzen Texten und die <strong>Abfrage von morphologischen Formen</strong> in einem Text, sind die Zwei wichtigen Funktionen dieser App.
+</p>
+<p>Weitere (technische) Infos über diese WebApp können Sie auf <a href="{{ url_for('technisches')}}">diese Seite</a> finden. Für alle andere Fragen schicken Sie dem Autor dieser App gerne eine Mail (benutzen Sie dafür den Link unten auf dieser Seite).</p>
+<br>
+</div>
+<img class="ml-3" src="{{ url_for('static', filename='img/busto.jpg') }}" alt="Eine griechische Statue" width="500px">
+</div>
+  
+
+<hr>
+<div class="container-fluid">
+<h1 style="text-align: center;">Perseus Suche</h1>
+<p>Das folgende Formular bietet die Möglichkeit, eine griechische Wortform im Perseus nachzuschlagen. Perseus bietet dann für die gesuchte Form eine morphologische Bestimmung (bzw. die möglichen Bestimmungen) und Links zu den Standardwörterbüchern an.
+</p>
+</div>
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-sm">
+            <figure>
+                <img src="http://ctsstage.dh.uni-leipzig.de/assets/nemo.secondary/static/perseus.png" alt="" width="350px">
+            </figure>
+          </div>
+          <div class="col-sm">
+                <form id="scegli" action="{{url_for('redirect_zu_perseus')}}" target="_blank">
+                        <div class="form-row align-items-center">
+                      
+                          <div class="col-auto my-1">
+                          <label for="wortform"><p>Geben Sie eine gr. Wortform ein:</p></label>
+                          <input id="such_perseus" type="text" class="form-control" aria-describedby="help" placeholder="manqanw" name=wortform>
+                          <small id="help" class="form-text text-muted"> <p>Die Suche funktioniert auch ohne Angabe der Diakritika. <br> Für eine höhere Präzision, benutzen Sie bitte die Notation in der Tabelle hier rechts.</p> </small>
+                        </div>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Suche auf Perseus</button>
+                      </form>
+          </div>
+          <div class="col-sm">
+                <figure>
+                        <img src="http://www.perseus.tufts.edu/img/keyCaps.gif" alt="" width="470px">
+                    </figure>
+          </div>
+        </div>
+      </div>
+
+
+<hr>
+<h4>Test Seiten:</h4>
+<ul>
+<li> Die folgende Seite erscheint jedes Mal, wenn der Benutzer eine nicht-existierende Seite abruft. 
+    Die App sollte nicht crashen, sondern die Möglichkeit geben, zurück zur Startseite zu gehen.  
+    <br> <a class="btn btn-info" href="/nicht_vorhanden.html" role="button">Nicht-existierende-Seite</a>
+
+</ul>
+{% endblock %}

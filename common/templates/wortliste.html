@@ -1,0 +1,53 @@
+<!-- Grundgerust der Seite -->
+{% extends 'basic.html' %}
+<!-- Datei-Import für die Formulare -->
+{% import "bootstrap/wtf.html" as wtf %} 
+
+{% block content %}
+<div id="loading" class="jumbotron">
+    <h2>Ein Moment Geduld...</h2>
+    <p>Diese Funktion braucht viel Zeit. Eine komplexe Schleife muss meherer tausende male durchgeführt werden, um alle Infos über die einzelne Wörter zu finden und in der DB zu speichern</p>
+    <figure>
+      <img src="{{url_for('static', filename='img/loading.jpg')}}" alt="" width="470px">
+  </figure>
+  </div>
+<div id="inhalt">
+ <!-- Zeige die Tabelle -->
+  <div>
+     <h2>Wortformen aus {{werk}} von {{autore}} </h2>
+     <div class="container-fluid">
+            <h2>Laden Sie die Liste herunter:</h2>
+            <!-- <a id = "csv_herunterladen" href="{{url_for('csv_herunterladen',query=query)}}" class="btn btn-danger" role="button" aria-pressed="true">Download als csv</a> -->
+            <a id = "csv_herunterladen" href="{{url_for('csv_herunterladen',query=query)}}" class="btn btn-danger" role="button" aria-pressed="true">Download als csv</a>
+            <a id = "TeX_herunterladen" href="{{url_for('TeX_herunterladen',query=query)}}" class="btn btn-success" role="button" aria-pressed="true">Download als pdf (über LaTeX)</a>
+            <!-- <button type="button" class="btn btn-danger" id="csv_herunterladen">Download Liste als csv</button> -->
+            
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+        <!-- <script>
+                $(function() {
+                    $('#csv_herunterladen').bind('click', function() {
+                      $.getJSON('/csv_herunterladen',
+                          function(data) {
+                        //do nothing
+                      });
+                      return false;
+                    });
+                  });
+        </script> -->
+    </div>
+
+    {{ tabelle }}
+    <!-- Kleine JQuery Script für das Suchfeld und Sortierung der Tabelle -->
+
+    <script>$(document).ready( function () {
+            $('#wortliste').DataTable();
+        } );</script>
+
+</div>
+</div>
+
+
+
+ {% endblock %}
+
+

@@ -1,0 +1,101 @@
+/* ###### Stileinstellungen #####
+Auf dieser Seite sind die CSS-Einstellungen definiert.
+Sie spielen keine große Rolle für die Python-Funktionen und die Inhalte der Webapp, optimieren aber die Ästhetik der App.
+
+Mithilfe von wenigen CSS-Codes ist es möglich,  Ränder, Schriftarten, Farben usw.. zu definieren.
+Die App verwendet darüber hinaus die Bootstrap Library für die stilistischen Grundeinstellungen.
+
+ */
+
+/* Generisches */
+
+p{
+    font-family: 'Amiri', serif;
+    /* font-family: 'Alegreya', serif; */
+    font-weight: 400;
+    color: #38527c;
+  }
+
+  img {
+    vertical-align: super;
+    border-style: none;
+}
+
+  li{
+    font-family: 'Alegreya', serif;
+  }
+
+  h2{
+    padding-top: .5em;
+    padding-left: .5em;
+    font-family: 'Unna', serif;
+  }
+
+
+ /* Navbar  */
+  nav{
+    font-weight: bold;
+  }
+
+  /*  Footer */
+
+  .footer_element{
+    font-family: 'Alegreya' !important;
+    color: black;
+  }
+
+  .testi_greci{
+    font-family: 'GFS Didot', serif;
+    color : black;
+  }
+
+
+  form{
+      padding-left: 1em;
+  }
+
+  #footer_custom{
+    clear: both;
+    background-color: rgba(58, 193, 33, 0.5);
+    color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
+  }
+
+  hr{
+    border-top: 7px solid #15818c;
+    box-shadow: 1px 1px 25px 3px #87dac7;
+  }
+
+  #hello_space{
+    margin-block-end: 10em;
+  }
+
+  /* Startseite  */
+#titel_titel{
+  padding-top: .5em;
+}
+
+#einführung{
+  padding-left: .5em;
+  padding-right: 1em;
+}
+
+#such_perseus{
+  box-shadow: inset 2px 3px 20px 0px #088ead;
+  width: 50%;
+}
+
+/* ZeigWerke.html */
+
+#suche_werke{
+  padding-top: .6em;
+}
+
+/* Technisches */
+#pdf_infos{
+  text-align: center;
+}
+
+#loading{
+  display : none;
+}

@@ -1,0 +1,15 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<h2>Technische Infos über diese App</h2>
+<ul>
+    <li>Autor: <em>Antonio Masotti</em> (Universität Göttingen)</li>
+    <li>Anwendungsversion: <em>1.0</em></li>
+    <li>Datum: März-April 2019</li>
+</ul>
+
+<div class="container-fluid" id="pdf_infos">
+        <p><embed src="{{url_for('static', filename='assets/dokumentation.pdf')}}" width="1200" height="800" ></p>
+        </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "basic.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container">
+
+<h1>Werk Löschen</h1>
+<p>Das folgende Formular erlaubt Ihnen ein Werk aus der Datenbank zu löschen.</p>
+<form  method="POST">
+    <dl>
+      <!-- Questo comando genera automaticamente per noi il formulario così come lo abbiamo impostato nella pagina principale dell'app -->
+      {{wtf.quick_form(form, button_map={'submit': 'primary'})}}
+    </dl>
+   <br>
+    <!-- {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }} -->
+</form>
+</div>
+{% endblock %}

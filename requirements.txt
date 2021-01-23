@@ -1,0 +1,14 @@
+requests==2.19.1
+WTForms==2.2.1
+Flask==1.0.2
+SQLAlchemy==1.2.11
+Werkzeug==0.16.1
+lxml==4.2.5
+Flask_SQLAlchemy==2.3.2
+Flask_WTF==0.14.2
+Flask_Bootstrap==3.3.7.1
+Flask_Table==0.5.0
+alembic==1.0.8
+Flask_Migrate==2.4.0
+beautifulsoup4==4.7.1
+pathlib==1.0.1

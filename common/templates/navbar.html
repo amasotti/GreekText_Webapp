@@ -1,0 +1,48 @@
+<!-- HTML und Jinja Code für die Navigation Bar -->
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(58, 193, 33, 0.5); box-shadow: -11px 3px 18px 1px rgba(21, 129, 140, 0.64); box-shadow: 0 1px 4px 0 rgba(0,0,0,.37); border-radius: 10px;">
+    <a class="navbar-brand" href="#">
+  
+      <div>
+        <img src="../static/img/old_greek.svg" alt="" height="50px" title="Logo des Programms">
+      </div></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('startseite')}}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('technisches')}}">Dokumentation <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('autorenList') }}">Alle Autoren<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Datenbankverwaltung
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class ="dropdown-item" href="{{ url_for('sqlForm') }}"> Query nach Worttypen </a>
+            <div class="dropdown-divider"></div>
+              <a class ="dropdown-item" href=" {{ url_for('zeigWerken') }} " >Suche alle Werke eines Autors</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ url_for('loeschwerk') }}">Werk Löschen</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Übersicht & Listen
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ url_for('allewerke') }}">Gespeicherte Werke </a>
+              <a class="dropdown-item" href="{{ url_for('alleautoren') }}">Gespeicherte Autoren </a>
+              <a class ="dropdown-item" href="{{ url_for('gesuchteforme') }}"> Gespeicherte Wortformen</a>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,79 @@
+% PREAMBOLO
+\documentclass[twocolumn,12pt]{article}
+
+%----------- IMMANCABILI ------------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tipa}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+%------------ MATEMATICA--------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% ------------ LINGUE ---------------
+\usepackage{polyglossia}
+\setdefaultlanguage[babelshorthands=true]{german}
+\setotherlanguage[variant=ancient]{greek}
+
+\usepackage{fontspec}
+\usepackage{libertine}
+
+%----------------FONTS-----------------------
+\newfontfamily{\greekfont}{Palatino Linotype} 
+\newfontfamily{\greekfontrm}{Palatino Linotype}
+\newfontfamily{\greekfontsf}{Candara}
+\newfontfamily{\greeksansfont}{Times New Roman}
+
+%-------------- LINGUISTICS --------------
+\usepackage{linguex}
+
+%------------- LAYOUT --------------------------
+\newcommand{\mydate}{\today}
+\newcommand{\mytext}{\textsc{Gr. Wortformen \hspace{13cm} \textsc{A. Masotti}}}
+\renewcommand{\baselinestretch}{1} 
+
+\usepackage{tikz}
+\usepackage{placeins}
+%Geometry Einstellungen und Page Layout
+\usepackage{eso-pic}
+\usepackage[
+left=2cm,
+right=2cm,
+top=2cm,
+bottom=1.5cm,
+headsep=2cm]{geometry}
+%\usepackage{fancyhdr}
+\AddToShipoutPicture{%
+    \AtTextUpperLeft{%
+        \makebox(8,30)[l]{%
+            \textbf{\mytext}%
+            \textbf{\hfill}%
+            \vspace{1cm}%
+        }\makebox(30,20)[tl]{\begin{tikzpicture}
+            \draw (-1,-1) -- (17,-1);
+            \end{tikzpicture}}}}
+%\pagestyle{fancy}
+
+
+%------------- COMANDI PERSONALI -----------------------
+\newcommand{\wortform}[1]{\textgreek{\textbf{{\large #1 }}}}
+
+\newcommand{\glossa}[1]{\textgreek{,#1‘ }}
+\newcommand{\tradu}[1]{\textcolor{teal}{\small \sl »#1« }}
+\newcommand{\morphobestimmung}[1]{{\footnotesize #1 }}
+
+\newcommand{\eintrag}[4]{\wortform{#1} (siehe \glossa{#2}, \tradu{ #3 }) : \morphobestimmung{#4} }
+
+%-------------------------- DOC INFO --------------------------------------
+\title{Griechische Wortformen}
+\author{A. Masotti \\ {\footnotesize Created with Flask \& SQLAlchemy}}
+
+
+\begin{document}
+\maketitle
+\input{Tex_formen}
+
+
+\end{document}

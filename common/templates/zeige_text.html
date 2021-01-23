@@ -1,0 +1,21 @@
+<!-- Grundgerüst der Seite -->
+{% extends "basic.html" %}
+
+
+<!-- Eigentlicher Inhalt der Webseite -->
+{% block content %}
+
+<h2>Sie lesen: {{text_name}}</h2>
+<div class="container">
+
+
+<!-- In geschleiften Doppelklammern werden die Jinja2 Variabeln überführt.
+Die Option "safe" bedeutet, dass der Wert der Variabel schon in HTML-Form ist. -->
+    {{ inhalt | safe }}
+
+
+
+
+</div>
+<!-- Ende des Inhalts dieser Seite -->
+{% endblock content%}
